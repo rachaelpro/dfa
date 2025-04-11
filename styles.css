@@ -1,0 +1,213 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/background.jpg');
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  cursor: url("assets/cursor.cur"), auto;
+  color: #8bf78d;
+  font-family: "Doto";
+  text-shadow: 
+    1px 1px 0px #938CF8,   
+    -1px -1px 0px #938CF8, 
+    1px -1px 0px #938CF8, 
+    -1px 1px 0px #938CF8;  
+  text-align: center;
+  font-size: 42px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+  text-align: center;
+}
+
+.rotating-star {
+  animation: rotate 5s infinite linear;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.collage-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.modal-image-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border: 20px solid white; 
+  border-top: 40px solid white;
+  border-bottom: 90px solid white; 
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: zoomIn 0.4s ease;
+  position: relative;
+/*   z-index: 9999;  */
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+#caption {
+  position: absolute;
+  bottom: -80px; 
+  left: 0;
+  width: 100%; 
+/*   font-size: 36px;
+  color: #8bf78d;
+  font-family: "Doto";
+  text-shadow: 
+    1px 1px 0px #938CF8,   
+    -1px -1px 0px #938CF8, 
+    1px -1px 0px #938CF8, 
+    -1px 1px 0px #938CF8;  
+  text-align: center; */
+  padding: 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 9999; 
+  margin-bottom: 10px;
+}
+
+
+.close {
+  position: fixed;
+  cursor: pointer;
+  z-index: 10000;
+  top: 20px; 
+  right: 30px;
+}
+
+.close img {
+  width: 100px; 
+  height: auto;
+}
+
+.close img:hover {
+  animation: rotate 5s infinite linear;
+}
+
+.prev img,
+.next img {
+  width: 200px;     
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.prev,
+.next {
+  position: fixed;
+  z-index: 10000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.next {
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+.prev:hover,
+.next:hover {
+  color: #bbb;
+}
+
+.collage-item img:hover {
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+
+#floatingImage {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  display: none;
+  z-index: 1000;
+}
+
+#hoverBackImage,
+#hoverNextImage {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+  display: none;
+  z-index: 10002;
+}
+
+footer {
+  font-size: 18px !important;
+  font-family: "Doto", sans-serif;
+}
